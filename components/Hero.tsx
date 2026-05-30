@@ -64,7 +64,7 @@ export default function Hero() {
         >
           Mathematics and Computer Science Student
           <br className="hidden sm:block" />
-          <span className="sm:ml-2">&amp; Software Developer</span>
+          <span className="sm:ml-2"> &amp; Software Developer</span>
         </motion.p>
 
         {/* Philosophy */}
