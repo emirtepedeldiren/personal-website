@@ -50,7 +50,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 1, 0.5, 1] }}
           className="text-[clamp(64px,13vw,128px)] font-bold text-[#f5f5f7] tracking-[-0.03em] leading-[1.05] mb-4"
         >
-          Emir
+          <span className="text-gradient-blue">Emir</span>
           <br />
           <span className="text-gradient-blue">Tepedeldiren</span>
         </motion.h1>

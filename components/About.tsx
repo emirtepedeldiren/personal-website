@@ -56,7 +56,7 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
-              className="text-[17px] text-[#86868b] leading-[1.7] mb-5"
+              className="text-[17px] text-[#a1a1a6] leading-[1.7] mb-5"
             >
               I'm Emir. I'm a software developer who loves turning ideas into code. 
               While my academic background gives me a strong foundation in problem-solving, my true drive lies in improve myself. 
@@ -70,7 +70,7 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
-              className="text-[17px] text-[#86868b] leading-[1.7]"
+              className="text-[17px] text-[#a1a1a6] leading-[1.7]"
             >
               Software should be as rigorous
               as mathematics and as beautiful as design.
