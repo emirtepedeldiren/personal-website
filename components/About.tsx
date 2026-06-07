@@ -112,12 +112,11 @@ export default function About() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "Mobile Apps",
+                    ".NET Full Stack Development",
                     "Web Development",
-                    "Machine Learning",
-                    "Algorithms",
+                    "Mobile App Development",
+                    "Machine Learning"
                     
-                    "Data Structures",
                   ].map((area) => (
                     <span
                       key={area}
