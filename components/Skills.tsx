@@ -1,21 +1,118 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SiPython, SiHtml5, SiCss, SiJavascript, SiGit } from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
+import { SiGit } from "react-icons/si";
 import { FaTerminal } from "react-icons/fa";
-import { BsRobot } from "react-icons/bs";
 import type { CSSProperties } from "react";
 
 type SkillIcon = React.ComponentType<{ className?: string; style?: CSSProperties }>;
 
-function CSharpIcon({ style }: { className?: string; style?: CSSProperties }) {
+
+function NodeJSIcon({ style }: { className?: string; style?: CSSProperties }) {
   const size = (style?.fontSize as number) ?? 17;
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/csharp-logo.svg"
-      alt="C#"
+      src="/nodejs-icon.svg"
+      alt="Node.js"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function ReactIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/React-icon.svg.png"
+      alt="React"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function TypescriptIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/typescript.svg.png"
+      alt="TypeScript"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function ClaudeIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/claude-ai.svg"
+      alt="Claude"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function VSCodeIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/vscode.svg.png"
+      alt="VS Code"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function PythonIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/python.svg.png"
+      alt="Python"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function HTMLIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/html.svg.png"
+      alt="HTML5"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function CSSIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/css.svg.png"
+      alt="CSS3"
       width={size}
       height={size}
       style={{ display: "inline-block" }}
@@ -32,24 +129,25 @@ type Skill = {
 
 const skillCategories: { category: string; icon: string; skills: Skill[] }[] = [
   {
-    category: "Languages",
+    category: "Languages & Frameworks",
     icon: "{ }",
     skills: [
-      { name: "Python", icon: SiPython, color: "#3776AB" },
-      { name: "C#", icon: CSharpIcon, color: "#9B4F96", size: 28 },
-      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-      { name: "CSS3", icon: SiCss, color: "#1572B6" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "Python", icon: PythonIcon, color: "#3776AB" },
+      { name: "HTML5", icon: HTMLIcon, color: "#E34F26" },
+      { name: "CSS3", icon: CSSIcon, color: "#1572B6" },
+      { name: "TypeScript", icon: TypescriptIcon, color: "#F7DF1E" },
+      { name: "Node.js", icon: NodeJSIcon, color: "#9B4F96", size: 28 },
+      { name: "React", icon: ReactIcon, color: "#61DAFB", size: 28 }
     ],
   },
   {
     category: "Tools",
     icon: "◈",
     skills: [
-      { name: "VS Code", icon: VscVscode, color: "#007ACC" },
+      { name: "VS Code", icon: VSCodeIcon, color: "#007ACC" },
       { name: "Git & GitHub", icon: SiGit, color: "#F05032" },
       { name: "Terminal", icon: FaTerminal, color: "#86868b" },
-      { name: "Claude Code", icon: BsRobot, color: "#cc785c" },
+      { name: "Claude Code", icon: ClaudeIcon, color: "#cc785c" },
     ],
   },
 ];
@@ -104,7 +202,7 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto"
+          className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto items-start"
         >
           {skillCategories.map((cat) => (
             <motion.div
