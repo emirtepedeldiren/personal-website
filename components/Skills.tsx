@@ -120,6 +120,34 @@ function CSSIcon({ style }: { className?: string; style?: CSSProperties }) {
   );
 }
 
+function GitIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/git.svg.png"
+      alt="Git"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
+function TerminalIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/mac-terminal.png"
+      alt="Terminal"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
 type Skill = {
   name: string;
   icon: SkillIcon;
@@ -132,22 +160,22 @@ const skillCategories: { category: string; icon: string; skills: Skill[] }[] = [
     category: "Languages & Frameworks",
     icon: "{ }",
     skills: [
-      { name: "Python", icon: PythonIcon, color: "#3776AB" },
-      { name: "HTML5", icon: HTMLIcon, color: "#E34F26" },
-      { name: "CSS3", icon: CSSIcon, color: "#1572B6" },
-      { name: "TypeScript", icon: TypescriptIcon, color: "#F7DF1E" },
+      { name: "Python", icon: PythonIcon, color: "#3776AB", size: 28 },
+      { name: "HTML5", icon: HTMLIcon, color: "#E34F26", size: 28 },
+      { name: "CSS3", icon: CSSIcon, color: "#1572B6", size: 28 },
+      { name: "TypeScript", icon: TypescriptIcon, color: "#F7DF1E", size: 28 },
       { name: "Node.js", icon: NodeJSIcon, color: "#9B4F96", size: 28 },
       { name: "React", icon: ReactIcon, color: "#61DAFB", size: 28 }
     ],
   },
   {
     category: "Tools",
-    icon: "◈",
+    icon: "🛠️",
     skills: [
-      { name: "VS Code", icon: VSCodeIcon, color: "#007ACC" },
-      { name: "Git & GitHub", icon: SiGit, color: "#F05032" },
-      { name: "Terminal", icon: FaTerminal, color: "#86868b" },
-      { name: "Claude Code", icon: ClaudeIcon, color: "#cc785c" },
+      { name: "VS Code", icon: VSCodeIcon, color: "#007ACC", size: 28 },
+      { name: "Git & GitHub", icon: GitIcon, color: "#F05032", size: 28 },
+      { name: "Terminal", icon: TerminalIcon, color: "#86868b", size: 28 },
+      { name: "Claude Code", icon: ClaudeIcon, color: "#cc785c", size: 28 },
     ],
   },
 ];
