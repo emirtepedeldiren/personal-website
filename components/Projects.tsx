@@ -10,7 +10,7 @@ const projects = [
     subtitle: "A platform for mutual support among university students.",
     description:
       "UniHive is a modern, collaborative ecosystem designed specifically for university students.It enables information sharing and collaboration by integrating it with the internet in an academic environment.",
-    techStack: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    techStack: ["TypeScript","Node.js", "React"],
     accent: "#FFCC00",
     highlight: "Modern, collaborative ecosystem for university students.",
   },
@@ -21,7 +21,7 @@ const projects = [
     subtitle: "Interactive Game",
     description:
       "A Game of Thrones-themed, frame-independent 2D arcade game built from scratch utilizing custom pixel art integration, RGB color matrices, and spatial audio triggers.",
-    techStack: ["Python", "Pygame"],
+    techStack: ["Python"],
     accent: "#ff453a",
     highlight: "Frame-independent physics with custom pixel art engine.",
   },
@@ -32,7 +32,7 @@ const projects = [
     subtitle: "Desktop Application",
     description:
       "A highly structured, JSON-backed desktop application engineered using CustomTkinter, featuring clean data serialization and dynamic asset balance updates.",
-    techStack: ["Python", "Tkinter", "JSON"],
+    techStack: ["Python","JSON"],
     accent: "#0071e3",
     highlight: "Financial data persistence with real-time balance calculation.",
   },
