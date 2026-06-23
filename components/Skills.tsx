@@ -36,13 +36,13 @@ function ReactIcon({ style }: { className?: string; style?: CSSProperties }) {
   );
 }
 
-function TypescriptIcon({ style }: { className?: string; style?: CSSProperties }) {
+function JavaScriptIcon({ style }: { className?: string; style?: CSSProperties }) {
   const size = (style?.fontSize as number) ?? 17;
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/typescript.svg.png"
-      alt="TypeScript"
+      src="/js.png"
+      alt="JavaScript"
       width={size}
       height={size}
       style={{ display: "inline-block" }}
@@ -148,6 +148,20 @@ function TerminalIcon({ style }: { className?: string; style?: CSSProperties }) 
   );
 }
 
+function CursorIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/cursor.png"
+      alt="Cursor"
+      width={size}
+      height={size}
+      style={{ display: "inline-block" }}
+    />
+  );
+}
+
 type Skill = {
   name: string;
   icon: SkillIcon;
@@ -163,7 +177,7 @@ const skillCategories: { category: string; icon: string; skills: Skill[] }[] = [
       { name: "Python", icon: PythonIcon, color: "#3776AB", size: 28 },
       { name: "HTML5", icon: HTMLIcon, color: "#E34F26", size: 28 },
       { name: "CSS3", icon: CSSIcon, color: "#1572B6", size: 28 },
-      { name: "TypeScript", icon: TypescriptIcon, color: "#F7DF1E", size: 28 },
+      { name: "JavaScript", icon: JavaScriptIcon, color: "#F7DF1E", size: 28 },
       { name: "Node.js", icon: NodeJSIcon, color: "#9B4F96", size: 28 },
       { name: "React", icon: ReactIcon, color: "#61DAFB", size: 28 }
     ],
@@ -173,6 +187,7 @@ const skillCategories: { category: string; icon: string; skills: Skill[] }[] = [
     icon: "🛠️",
     skills: [
       { name: "VS Code", icon: VSCodeIcon, color: "#007ACC", size: 28 },
+      { name: "Cursor", icon: CursorIcon, color: "#86868b", size: 28 },
       { name: "Git & GitHub", icon: GitIcon, color: "#F05032", size: 28 },
       { name: "Terminal", icon: TerminalIcon, color: "#86868b", size: 28 },
       { name: "Claude Code", icon: ClaudeIcon, color: "#cc785c", size: 28 },
@@ -255,7 +270,7 @@ export default function Skills() {
                 {cat.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.07]"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.07] transition-colors duration-300 ease-out hover:bg-white/[0.09] hover:border-white/[0.12]"
                   >
                     <span className="flex items-center justify-center w-[28px] shrink-0">
                       <skill.icon
@@ -263,7 +278,7 @@ export default function Skills() {
                         className="shrink-0"
                       />
                     </span>
-                    <span className="text-[13px] text-[#86868b]">
+                    <span className="text-[14px] text-[#e8e8ed]">
                       {skill.name}
                     </span>
                   </div>
