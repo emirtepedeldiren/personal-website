@@ -17,7 +17,7 @@ const fadeUp = {
 
 const stats = [
   { value: "3+", label: "Projects Built" },
-  { value: "6+", label: "Months Coding" },
+  { value: "8+", label: "Months Coding" },
 ];
 
 export default function About() {
@@ -38,17 +38,19 @@ export default function About() {
               About
             </motion.p>
 
-            <motion.h2
+            <motion.p
               custom={1}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
-              className="text-[clamp(32px,5vw,52px)] italic text-[#f5f5f7] tracking-[-0.025em] leading-[1.1] mb-6"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              className="text-[17px] text-[#e8e8ed] leading-[1.7] mb-5"
             >
-              &ldquo;Nothing is gained without loss.&rdquo;
-            </motion.h2>
+              I'm Emir. I'm a software developer who loves turning ideas into projects. 
+              While my academic background gives me a strong foundation in problem-solving, my true drive lies in improve myself. 
+              Driven by the mindset of 'code, create, and repeat,' 
+              I'm constantly exploring new technologies, refining my skills, and looking for the next chance to build something great.
+            </motion.p>
 
             <motion.p
               custom={2}
@@ -56,21 +58,7 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
-              className="text-[17px] text-[#c7c7cc] leading-[1.7] mb-5"
-            >
-              I'm Emir. I'm a software developer who loves turning ideas into code. 
-              While my academic background gives me a strong foundation in problem-solving, my true drive lies in improve myself. 
-              Driven by the mindset of 'code, create, and repeat,' 
-              I'm constantly exploring new technologies, refining my skills, and looking for the next chance to build something great.
-            </motion.p>
-
-            <motion.p
-              custom={3}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-              className="text-[17px] text-[#c7c7cc] leading-[1.7]"
+              className="text-[17px] text-[#e8e8ed] leading-[1.7]"
             >
               Software should be as rigorous
               as mathematics and as beautiful as design.
