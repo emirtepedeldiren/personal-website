@@ -31,7 +31,7 @@ const projects = [
     title: "Budget Manager",
     subtitle: "Desktop Application",
     description:
-      "A highly structured, JSON-backed desktop application engineered using CustomTkinter, featuring clean data serialization and dynamic asset balance updates.",
+      "A highly structured, JSON-backed desktop application engineered using Tkinter, featuring clean data serialization and dynamic asset balance updates.",
     techStack: ["Python","JSON"],
     accent: "#0071e3",
     highlight: "Financial data persistence with real-time balance calculation.",
