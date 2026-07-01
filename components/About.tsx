@@ -16,7 +16,7 @@ const fadeUp = {
 };
 
 const stats = [
-  { value: "3+", label: "Projects Built" },
+  { value: "4+", label: "Projects Built" },
   { value: "8+", label: "Months Coding" },
 ];
 
