@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SiGit } from "react-icons/si";
-import { FaTerminal } from "react-icons/fa";
 import type { CSSProperties } from "react";
 
 type SkillIcon = React.ComponentType<{ className?: string; style?: CSSProperties }>;
@@ -162,6 +160,48 @@ function CursorIcon({ style }: { className?: string; style?: CSSProperties }) {
   );
 }
 
+function JavaIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/java.svg"
+      alt="Java"
+      width={size}
+      height={size}
+      style={{ display: "inline-block", transform: "translateX(-3.5px)" }}
+    />
+  );
+}
+
+function IntellijIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/idea.png"
+      alt="IntelliJ IDEA"
+      width={size}
+      height={size}
+      style={{ display: "inline-block", maxWidth: "none" }}
+    />
+  );
+}
+
+function WarpIcon({ style }: { className?: string; style?: CSSProperties }) {
+  const size = (style?.fontSize as number) ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/warp.png"
+      alt="Warp"
+      width={size}
+      height={size}
+      style={{ display: "inline-block", maxWidth: "none" }}
+    />
+  );
+}
+
 type Skill = {
   name: string;
   icon: SkillIcon;
@@ -175,6 +215,7 @@ const skillCategories: { category: string; icon: string; skills: Skill[] }[] = [
     icon: "{ }",
     skills: [
       { name: "Python", icon: PythonIcon, color: "#3776AB", size: 28 },
+      { name: "Java", icon: JavaIcon, color: "#0074BD", size: 30 },
       { name: "HTML5", icon: HTMLIcon, color: "#E34F26", size: 28 },
       { name: "CSS3", icon: CSSIcon, color: "#1572B6", size: 28 },
       { name: "JavaScript", icon: JavaScriptIcon, color: "#F7DF1E", size: 28 },
@@ -187,8 +228,10 @@ const skillCategories: { category: string; icon: string; skills: Skill[] }[] = [
     icon: "🛠️",
     skills: [
       { name: "VS Code", icon: VSCodeIcon, color: "#007ACC", size: 28 },
+      { name: "IntelliJ", icon: IntellijIcon, color: "#000000", size: 40 },
       { name: "Cursor", icon: CursorIcon, color: "#86868b", size: 28 },
       { name: "Git & GitHub", icon: GitIcon, color: "#F05032", size: 28 },
+      { name: "Warp", icon: WarpIcon, color: "#86868b", size: 44 },
       { name: "Terminal", icon: TerminalIcon, color: "#86868b", size: 28 },
       { name: "Claude Code", icon: ClaudeIcon, color: "#cc785c", size: 28 },
     ],
@@ -272,7 +315,7 @@ export default function Skills() {
                     key={skill.name}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.07] transition-colors duration-300 ease-out hover:bg-white/[0.09] hover:border-white/[0.12]"
                   >
-                    <span className="flex items-center justify-center w-[28px] shrink-0">
+                    <span className="flex items-center justify-center w-[34px] h-[34px] shrink-0 overflow-hidden rounded-[9px]">
                       <skill.icon
                         style={{ color: skill.color, fontSize: skill.size ?? 17 }}
                         className="shrink-0"
