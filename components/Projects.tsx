@@ -35,7 +35,7 @@ const projects = [
     title: "Flappy Dragon",
     subtitle: "Interactive Game",
     description:
-      "A Game of Thrones-themed, 2D game written by Pygame.",ç
+      "A Game of Thrones-themed, 2D game written by Pygame.",
     techStack: ["Python"],
     accent: "#ff453a",
     glowAlpha: "24",
