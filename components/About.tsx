@@ -15,11 +15,6 @@ const fadeUp = {
   }),
 };
 
-const stats = [
-  { value: "4+", label: "Projects Built" },
-  { value: "8+", label: "Months Coding" },
-];
-
 export default function About() {
   return (
     <section id="about" className="py-32 px-6">
@@ -47,7 +42,7 @@ export default function About() {
               className="text-[17px] text-[#e8e8ed] leading-[1.7] mb-5"
             >
               I'm Emir. I'm a software developer who loves turning ideas into projects. 
-              While my academic background gives me a strong foundation in problem-solving, my true drive lies in improve myself. 
+              While my academic background gives me a strong foundation in problem-solving, my true drive lies in improving myself.
               Driven by the mindset of 'code, create, and repeat,' 
               I'm constantly exploring new technologies, refining my skills, and looking for the next chance to build something great.
             </motion.p>
@@ -77,24 +72,8 @@ export default function About() {
             <div className="absolute inset-0 rounded-3xl bg-[#0071e3]/[0.06] blur-3xl" />
 
             <div className="relative rounded-3xl border border-white/[0.08] bg-[#161617] p-8 lg:p-10">
-              
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                {stats.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-[32px] font-bold text-[#f5f5f7] tracking-tight mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-[12px] text-[#86868b] leading-tight">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
               {/* Focus areas */}
-              <div className="mt-8 pt-8 border-t border-white/[0.06]">
+              <div>
                 <p className="text-[12px] text-[#86868b] uppercase tracking-[0.1em] mb-3">
                   Focus Areas
                 </p>

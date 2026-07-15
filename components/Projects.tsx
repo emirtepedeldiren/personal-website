@@ -6,6 +6,18 @@ const projects = [
   {
     id: 1,
     number: "01",
+    title: "Chevrolet & Opel Spare Parts",
+    subtitle: "E-commerce Website",
+    description:"Chevrolet & Opel Spare Parts is a streamlined e-commerce catalog co-developed for Chevrolet and Opel auto parts. It offers an easy-to-browse product showcase that integrates directly with WhatsApp, providing customers with a fast, personalized, and direct ordering experience.",
+    techStack: [ "TypeScript", "Vue.js", "Python", "PostgreSQL" ],
+    accent: "#D3D3D3",
+    glowAlpha: "15",
+    highlight: "Streamlined e-commerce catalog for Chevrolet and Opel auto parts with WhatsApp integration for direct ordering.",
+    liveUrl: "https://chevroletopel.com",
+  },
+  {
+    id: 2,
+    number: "02",
     title: "Uni Hive",
     subtitle: "A platform for mutual support among university students.",
     description:
@@ -18,23 +30,12 @@ const projects = [
 
   },
   {
-    id: 2,
-    number: "02",
-    title: "Chevrolet & Opel Spare Parts",
-    subtitle: "E-commerce Website",
-    description:"Chevrolet & Opel Spare Parts is a streamlined e-commerce catalog co-developed for Chevrolet and Opel auto parts. It offers an easy-to-browse product showcase that integrates directly with WhatsApp, providing customers with a fast, personalized, and direct ordering experience.",
-    techStack: [ "TypeScript", "Vue.js", "Python", "PostgreSQL" ],
-    accent: "#D3D3D3",
-    glowAlpha: "15",
-    highlight: "Streamlined e-commerce catalog for Chevrolet and Opel auto parts with WhatsApp integration for direct ordering.",
-  },
-  {
     id: 3,
     number: "03",
     title: "Flappy Dragon",
     subtitle: "Interactive Game",
     description:
-      "A Game of Thrones-themed, frame-independent 2D arcade game built from scratch utilizing custom pixel art integration, RGB color matrices, and spatial audio triggers.",
+      "A Game of Thrones-themed, 2D game written by Pygame.",ç
     techStack: ["Python"],
     accent: "#ff453a",
     glowAlpha: "24",
@@ -157,6 +158,32 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
+              {/* View live */}
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative z-10 inline-flex items-center gap-1.5 mt-6 text-[13px] font-medium text-[#0071e3] transition-colors hover:text-[#3898ff]"
+                >
+                  View live
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </a>
+              )}
             </motion.article>
           ))}
         </motion.div>
