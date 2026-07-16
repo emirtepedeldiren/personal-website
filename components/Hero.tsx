@@ -102,12 +102,13 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
+        aria-hidden="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[11px] text-[#86868b]/50 tracking-widest uppercase">
+        <span className="text-[11px] text-[#86868b]/70 tracking-widest uppercase">
           Scroll
         </span>
         <motion.div

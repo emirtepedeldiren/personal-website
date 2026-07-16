@@ -101,9 +101,14 @@ export default function Contact() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-6 text-[13px] text-[#86868b]/50"
+              className="mt-6 text-[13px]"
             >
-              emir.tepedeldiren@gmail.com
+              <a
+                href="mailto:emir.tepedeldiren@gmail.com"
+                className="text-[#86868b] hover:text-[#f5f5f7] transition-colors duration-200"
+              >
+                emir.tepedeldiren@gmail.com
+              </a>
             </motion.p>
           </div>
         </motion.div>

@@ -120,7 +120,10 @@ export default function Projects() {
               />
 
               {/* Number */}
-              <div className="text-[11px] font-semibold text-[#86868b]/40 tracking-[0.1em] mb-5">
+              <div
+                aria-hidden="true"
+                className="text-[11px] font-semibold text-[#86868b]/60 tracking-[0.1em] mb-5"
+              >
                 {project.number}
               </div>
 
@@ -143,7 +146,8 @@ export default function Projects() {
               {/* Highlight */}
               <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.05] mb-6">
                 <p className="text-[12px] text-[#a1a1a6] leading-snug">
-                  ✦ {project.highlight}
+                  <span aria-hidden="true">✦ </span>
+                  {project.highlight}
                 </p>
               </div>
 

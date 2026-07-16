@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,6 +21,20 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
+  openGraph: {
+    title: "Emir Tepedeldiren — Software Developer",
+    description:
+      "Mathematics & Computer Science Student & Software Developer. Bridging the gap between rigid mathematical logic and elegant software architecture.",
+    type: "website",
+    images: [{ url: "/icon-512.png", width: 512, height: 512 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Emir Tepedeldiren — Software Developer",
+    description:
+      "Mathematics & Computer Science Student & Software Developer.",
+    images: ["/icon-512.png"],
+  },
 };
 
 export default function RootLayout({
@@ -28,8 +43,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="bg-black antialiased">{children}</body>
+    <html lang="en">
+      <body className="bg-black antialiased">
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

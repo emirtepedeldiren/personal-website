@@ -49,7 +49,7 @@ export default function Navbar() {
             <li key={link.href}>
               <button
                 onClick={() => handleNavClick(link.href)}
-                className="text-[14px] text-[#86868b] hover:text-[#f5f5f7] transition-colors duration-200"
+                className="text-[14px] text-[#86868b] hover:text-[#f5f5f7] transition-colors duration-200 py-2"
               >
                 {link.label}
               </button>
@@ -60,8 +60,10 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex flex-col gap-[5px] p-1"
+          className="md:hidden flex flex-col items-center justify-center gap-[5px] min-w-[44px] min-h-[44px] -mr-3"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
@@ -82,6 +84,7 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -93,7 +96,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-[15px] text-[#86868b] hover:text-[#f5f5f7] transition-colors w-full text-left py-1"
+                    className="text-[15px] text-[#86868b] hover:text-[#f5f5f7] transition-colors w-full text-left py-2.5"
                   >
                     {link.label}
                   </button>

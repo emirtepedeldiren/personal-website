@@ -3,237 +3,71 @@
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
 
-type SkillIcon = React.ComponentType<{ className?: string; style?: CSSProperties }>;
-
-
-function NodeJSIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/nodejs-icon.svg"
-      alt="Node.js"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function ReactIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/React-icon.svg.png"
-      alt="React"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function JavaScriptIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/js.png"
-      alt="JavaScript"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function ClaudeIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/claude-ai.svg"
-      alt="Claude"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function VSCodeIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/vscode.svg.png"
-      alt="VS Code"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function PythonIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/python.svg.png"
-      alt="Python"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function HTMLIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/html.svg.png"
-      alt="HTML5"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function CSSIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/css.svg.png"
-      alt="CSS3"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function GitIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/git.svg.png"
-      alt="Git"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function TerminalIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/mac-terminal.png"
-      alt="Terminal"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function CursorIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/cursor.png"
-      alt="Cursor"
-      width={size}
-      height={size}
-      style={{ display: "inline-block" }}
-    />
-  );
-}
-
-function JavaIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/java.svg"
-      alt="Java"
-      width={size}
-      height={size}
-      style={{ display: "inline-block", transform: "translateX(-3.5px)" }}
-    />
-  );
-}
-
-function IntellijIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/idea.png"
-      alt="IntelliJ IDEA"
-      width={size}
-      height={size}
-      style={{ display: "inline-block", maxWidth: "none" }}
-    />
-  );
-}
-
-function WarpIcon({ style }: { className?: string; style?: CSSProperties }) {
-  const size = (style?.fontSize as number) ?? 17;
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/warp.png"
-      alt="Warp"
-      width={size}
-      height={size}
-      style={{ display: "inline-block", maxWidth: "none" }}
-    />
-  );
-}
-
 type Skill = {
   name: string;
-  icon: SkillIcon;
-  color: string;
+  src: string;
+  alt: string;
   size?: number;
+  style?: CSSProperties;
 };
 
-const skillCategories: { category: string; icon: string; skills: Skill[] }[] = [
+function SkillLogo({ skill }: { skill: Skill }) {
+  const size = skill.size ?? 17;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={skill.src}
+      alt={skill.alt}
+      width={size}
+      height={size}
+      loading="lazy"
+      decoding="async"
+      style={{ display: "inline-block", ...skill.style }}
+    />
+  );
+}
+
+const wrenchIcon = (
+  <svg
+    width="15"
+    height="15"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+  </svg>
+);
+
+const skillCategories: { category: string; icon: React.ReactNode; skills: Skill[] }[] = [
   {
     category: "Languages & Frameworks",
     icon: "{ }",
     skills: [
-      { name: "Python", icon: PythonIcon, color: "#3776AB", size: 28 },
-      { name: "Java", icon: JavaIcon, color: "#0074BD", size: 30 },
-      { name: "HTML5", icon: HTMLIcon, color: "#E34F26", size: 28 },
-      { name: "CSS3", icon: CSSIcon, color: "#1572B6", size: 28 },
-      { name: "JavaScript", icon: JavaScriptIcon, color: "#F7DF1E", size: 28 },
-      { name: "Node.js", icon: NodeJSIcon, color: "#9B4F96", size: 28 },
-      { name: "React", icon: ReactIcon, color: "#61DAFB", size: 28 }
+      { name: "Python", src: "/python.svg.png", alt: "Python", size: 28 },
+      { name: "Java", src: "/java.svg", alt: "Java", size: 30, style: { transform: "translateX(-3.5px)" } },
+      { name: "HTML5", src: "/html.svg.png", alt: "HTML5", size: 28 },
+      { name: "CSS3", src: "/css.svg.png", alt: "CSS3", size: 28 },
+      { name: "JavaScript", src: "/js.png", alt: "JavaScript", size: 28 },
+      { name: "Node.js", src: "/nodejs-icon.svg", alt: "Node.js", size: 28 },
+      { name: "React", src: "/React-icon.svg.png", alt: "React", size: 28 },
     ],
   },
   {
     category: "Tools",
-    icon: "🛠️",
+    icon: wrenchIcon,
     skills: [
-      { name: "VS Code", icon: VSCodeIcon, color: "#007ACC", size: 28 },
-      { name: "IntelliJ", icon: IntellijIcon, color: "#000000", size: 40 },
-      { name: "Cursor", icon: CursorIcon, color: "#86868b", size: 28 },
-      { name: "Git & GitHub", icon: GitIcon, color: "#F05032", size: 28 },
-      { name: "Warp", icon: WarpIcon, color: "#86868b", size: 44 },
-      { name: "Terminal", icon: TerminalIcon, color: "#86868b", size: 28 },
-      { name: "Claude Code", icon: ClaudeIcon, color: "#cc785c", size: 28 },
+      { name: "VS Code", src: "/vscode.svg.png", alt: "VS Code", size: 28 },
+      { name: "IntelliJ", src: "/idea.png", alt: "IntelliJ IDEA", size: 40, style: { maxWidth: "none" } },
+      { name: "Cursor", src: "/cursor.png", alt: "Cursor", size: 28 },
+      { name: "Git & GitHub", src: "/git.svg.png", alt: "Git", size: 28 },
+      { name: "Warp", src: "/warp.png", alt: "Warp", size: 44, style: { maxWidth: "none" } },
+      { name: "Terminal", src: "/mac-terminal.png", alt: "Terminal", size: 28 },
+      { name: "Claude Code", src: "/claude-ai.svg", alt: "Claude", size: 28 },
     ],
   },
 ];
@@ -316,10 +150,7 @@ export default function Skills() {
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.07] transition-colors duration-300 ease-out hover:bg-white/[0.09] hover:border-white/[0.12]"
                   >
                     <span className="flex items-center justify-center w-[34px] h-[34px] shrink-0 overflow-hidden rounded-[9px]">
-                      <skill.icon
-                        style={{ color: skill.color, fontSize: skill.size ?? 17 }}
-                        className="shrink-0"
-                      />
+                      <SkillLogo skill={skill} />
                     </span>
                     <span className="text-[14px] text-[#e8e8ed]">
                       {skill.name}

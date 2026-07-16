@@ -28,3 +28,4 @@ yarn-error.log*
 # Claude
 CLAUDE.md
 .claude/
+tsconfig.tsbuildinfo
