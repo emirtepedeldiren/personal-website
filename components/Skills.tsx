@@ -49,12 +49,12 @@ const skillCategories: { category: string; icon: React.ReactNode; skills: Skill[
     icon: "{ }",
     skills: [
       { name: "Python", src: "/python.svg.png", alt: "Python", size: 28 },
-      { name: "Java", src: "/java.svg", alt: "Java", size: 30, style: { transform: "translateX(-3.5px)" } },
       { name: "HTML5", src: "/html.svg.png", alt: "HTML5", size: 28 },
       { name: "CSS3", src: "/css.svg.png", alt: "CSS3", size: 28 },
       { name: "JavaScript", src: "/js.png", alt: "JavaScript", size: 28 },
       { name: "Node.js", src: "/nodejs-icon.svg", alt: "Node.js", size: 28 },
       { name: "React", src: "/React-icon.svg.png", alt: "React", size: 28 },
+      { name: "PostgreSQL", src: "/postgres.svg", alt: "PostgreSQL", size: 28 },
     ],
   },
   {
@@ -62,11 +62,11 @@ const skillCategories: { category: string; icon: React.ReactNode; skills: Skill[
     icon: wrenchIcon,
     skills: [
       { name: "VS Code", src: "/vscode.svg.png", alt: "VS Code", size: 28 },
-      { name: "IntelliJ", src: "/idea.png", alt: "IntelliJ IDEA", size: 40, style: { maxWidth: "none" } },
+      { name: "WebStorm", src: "/web-storm.png", alt: "WebStorm", size: 28, style: { maxWidth: "none" }},
       { name: "Cursor", src: "/cursor.png", alt: "Cursor", size: 28 },
       { name: "Git & GitHub", src: "/git.svg.png", alt: "Git", size: 28 },
-      { name: "Warp", src: "/warp.png", alt: "Warp", size: 44, style: { maxWidth: "none" } },
       { name: "Terminal", src: "/mac-terminal.png", alt: "Terminal", size: 28 },
+      { name: "Warp", src: "/warp.png", alt: "Warp", size: 44, style: { maxWidth: "none" } },
       { name: "Claude Code", src: "/claude-ai.svg", alt: "Claude", size: 28 },
     ],
   },
