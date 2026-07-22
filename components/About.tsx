@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { SiteContent } from "@/lib/content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -15,7 +16,7 @@ const fadeUp = {
   }),
 };
 
-export default function About() {
+export default function About({ about }: { about: SiteContent["about"] }) {
   return (
     <section id="about" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
@@ -41,10 +42,7 @@ export default function About() {
               variants={fadeUp}
               className="text-[17px] text-[#e8e8ed] leading-[1.7] mb-5"
             >
-              I'm Emir. I'm a software developer who loves turning ideas into projects. 
-              While my academic background gives me a strong foundation in problem-solving, my true drive lies in improving myself.
-              Driven by the mindset of 'code, create, and repeat,' 
-              I'm constantly exploring new technologies, refining my skills, and looking for the next chance to build something great.
+              {about.paragraph1}
             </motion.p>
 
             <motion.p
@@ -55,8 +53,7 @@ export default function About() {
               variants={fadeUp}
               className="text-[17px] text-[#e8e8ed] leading-[1.7]"
             >
-              Software should be as rigorous
-              as mathematics and as beautiful as design.
+              {about.paragraph2}
             </motion.p>
           </div>
 
@@ -78,13 +75,7 @@ export default function About() {
                   Focus Areas
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {[
-                    "Full Stack Development",
-                    "Web Development",
-                    "Mobile App Development"
-                    
-                    
-                  ].map((area) => (
+                  {about.focusAreas.map((area) => (
                     <span
                       key={area}
                       className="px-3 py-1 rounded-full text-[12px] text-[#86868b] border border-white/[0.08] bg-white/[0.03]"

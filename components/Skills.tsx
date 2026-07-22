@@ -2,27 +2,24 @@
 
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
-
-type Skill = {
-  name: string;
-  src: string;
-  alt: string;
-  size?: number;
-  style?: CSSProperties;
-};
+import type { Skill, SiteContent } from "@/lib/content";
 
 function SkillLogo({ skill }: { skill: Skill }) {
   const size = skill.size ?? 17;
+  const style: CSSProperties = {
+    display: "inline-block",
+    ...(skill.wide ? { maxWidth: "none" } : {}),
+  };
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={skill.src}
-      alt={skill.alt}
+      alt={skill.name}
       width={size}
       height={size}
       loading="lazy"
       decoding="async"
-      style={{ display: "inline-block", ...skill.style }}
+      style={style}
     />
   );
 }
@@ -43,37 +40,10 @@ const wrenchIcon = (
   </svg>
 );
 
-const skillCategories: { category: string; icon: React.ReactNode; skills: Skill[] }[] = [
-  {
-    category: "Languages & Frameworks",
-    icon: "{ }",
-    skills: [
-      { name: "Python", src: "/python.svg.png", alt: "Python", size: 28 },
-      { name: "HTML5", src: "/html.svg.png", alt: "HTML5", size: 28 },
-      { name: "CSS3", src: "/css.svg.png", alt: "CSS3", size: 28 },
-      { name: "JavaScript", src: "/js.png", alt: "JavaScript", size: 28 },
-      { name: "C#", src: "/csharp.png", alt: "C#", size: 60, style: { maxWidth: "none" } },
-      { name: ".NET", src: "/dotnet.png", alt: ".NET", size: 28 , style: { maxWidth: "none" }},
-      { name: "React", src: "/React-icon.svg.png", alt: "React", size: 28 },
-      { name: "Entity Framework", src: "/ef2.jpg", alt: "Entity Framework", size: 28, style: { maxWidth: "none" } },
-      { name: "PostgreSQL", src: "/postgres.svg", alt: "PostgreSQL", size: 28 },
-    ],
-  },
-  {
-    category: "Tools",
-    icon: wrenchIcon,
-    skills: [
-      { name: "VS Code", src: "/vscode.svg.png", alt: "VS Code", size: 28 },
-      { name: "WebStorm", src: "/web-storm.png", alt: "WebStorm", size: 28, style: { maxWidth: "none" }},
-      { name: "Cursor", src: "/cursor.png", alt: "Cursor", size: 28 },
-      { name: "Git & GitHub", src: "/git.svg.png", alt: "Git", size: 28 },
-      { name: "Terminal", src: "/mac-terminal.png", alt: "Terminal", size: 28 },
-      { name: "Warp", src: "/warp.png", alt: "Warp", size: 44, style: { maxWidth: "none" } },
-      { name: "Claude Code", src: "/claude-ai.svg", alt: "Claude", size: 28 },
-      { name: "Postman", src: "/postman.png", alt: "Postman", size: 28 },
-    ],
-  },
-];
+const categoryIcons = {
+  braces: "{ }",
+  wrench: wrenchIcon,
+} as const;
 
 const containerVariants = {
   hidden: {},
@@ -93,7 +63,8 @@ const cardVariants = {
   },
 };
 
-export default function Skills() {
+export default function Skills({ skills }: { skills: SiteContent["skills"] }) {
+  const skillCategories = skills.categories;
   return (
     <section id="skills" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
@@ -129,7 +100,7 @@ export default function Skills() {
         >
           {skillCategories.map((cat) => (
             <motion.div
-              key={cat.category}
+              key={cat.title}
               variants={cardVariants}
               whileHover={{ scale: 1.02, y: -4 }}
               transition={{ duration: 0.25, ease: [0.25, 1, 0.5, 1] }}
@@ -138,10 +109,10 @@ export default function Skills() {
               {/* Category header */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-9 h-9 rounded-xl bg-[#0071e3]/10 border border-[#0071e3]/20 flex items-center justify-center text-[#0071e3] text-[14px] font-bold">
-                  {cat.icon}
+                  {categoryIcons[cat.icon]}
                 </div>
                 <h3 className="text-[15px] font-semibold text-[#f5f5f7] tracking-tight">
-                  {cat.category}
+                  {cat.title}
                 </h3>
               </div>
 

@@ -25,6 +25,9 @@ yarn-error.log*
 *.pem
 .vercel
 
+# Local content store (dev fallback when Upstash env vars are absent)
+.data/
+
 # Claude
 CLAUDE.md
 .claude/

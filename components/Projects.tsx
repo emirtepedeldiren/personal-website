@@ -1,59 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const projects = [
-  {
-    id: 1,
-    number: "01",
-    title: "Chevrolet & Opel Spare Parts",
-    subtitle: "E-commerce Website",
-    description:"Chevrolet & Opel Spare Parts is a streamlined e-commerce catalog co-developed for Chevrolet and Opel auto parts. It offers an easy-to-browse product showcase that integrates directly with WhatsApp, providing customers with a fast, personalized, and direct ordering experience.",
-    techStack: [ "TypeScript", "Vue.js", "Python", "PostgreSQL" ],
-    accent: "#D3D3D3",
-    glowAlpha: "15",
-    highlight: "Streamlined e-commerce catalog for Chevrolet and Opel auto parts with WhatsApp integration for direct ordering.",
-    liveUrl: "https://chevroletopel.com",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Uni Hive",
-    subtitle: "A platform for mutual support among university students.",
-    description:
-      "UniHive is a modern, collaborative ecosystem designed specifically for university students.It enables information sharing and collaboration by integrating it with the internet in an academic environment.",
-    techStack: ["TypeScript","Next.js", "React"],
-    accent: "#FFCC00",
-    glowAlpha: "12",
-    highlight: "Modern, collaborative ecosystem for university students.",
-
-
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Flappy Dragon",
-    subtitle: "Interactive Game",
-    description:
-      "A Game of Thrones-themed, 2D game written by Pygame.",
-    techStack: ["Python"],
-    accent: "#ff453a",
-    glowAlpha: "24",
-    highlight: "Frame-independent physics with custom pixel art engine.",
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Budget Manager",
-    subtitle: "Desktop Application",
-    description:
-      "A highly structured, JSON-backed desktop application engineered using Tkinter, featuring clean data serialization and dynamic asset balance updates.",
-    techStack: ["Python","JSON"],
-    accent: "#0071e3",
-    glowAlpha: "20",
-    highlight: "Financial data persistence with real-time balance calculation.",
-  },
-];
+import type { SiteContent } from "@/lib/content";
 
 const containerVariants = {
   hidden: {},
@@ -69,7 +17,11 @@ const cardVariants = {
   },
 };
 
-export default function Projects() {
+export default function Projects({
+  projects,
+}: {
+  projects: SiteContent["projects"];
+}) {
   return (
     <section id="projects" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">

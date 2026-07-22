@@ -1,8 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { SiteContent } from "@/lib/content";
 
-export default function Contact() {
+export default function Contact({
+  contact,
+}: {
+  contact: SiteContent["contact"];
+}) {
   return (
     <section id="contact" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
@@ -51,7 +56,7 @@ export default function Contact() {
               className="flex flex-col sm:flex-row gap-3 justify-center items-center"
             >
               <a
-                href="mailto:emir.tepedeldiren@gmail.com"
+                href={`mailto:${contact.email}`}
                 className="px-8 py-3.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 min-w-[130px]"
               >
                 <svg
@@ -71,7 +76,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/emir-tepedeldiren-b1311a263/"
+                href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 min-w-[130px]"
@@ -83,7 +88,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://github.com/emirtepedeldiren"
+                href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-[15px] font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 min-w-[130px]"
@@ -104,10 +109,10 @@ export default function Contact() {
               className="mt-6 text-[13px]"
             >
               <a
-                href="mailto:emir.tepedeldiren@gmail.com"
+                href={`mailto:${contact.email}`}
                 className="text-[#86868b] hover:text-[#f5f5f7] transition-colors duration-200"
               >
-                emir.tepedeldiren@gmail.com
+                {contact.email}
               </a>
             </motion.p>
           </div>
