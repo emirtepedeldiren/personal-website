@@ -279,14 +279,19 @@ export default function AdminPage() {
 
 function Section({
   title,
+  headerRight,
   children,
 }: {
   title: string;
+  headerRight?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <section className="rounded-2xl border border-white/[0.08] bg-[#161617] p-6 space-y-4">
-      <h2 className="text-[15px] font-semibold tracking-tight">{title}</h2>
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="text-[15px] font-semibold tracking-tight">{title}</h2>
+        {headerRight}
+      </div>
       {children}
     </section>
   );
@@ -445,6 +450,28 @@ function SkillRow({
   );
 }
 
+function MoveButton({
+  dir,
+  disabled,
+  onClick,
+}: {
+  dir: "up" | "down";
+  disabled: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={dir === "up" ? "Move up" : "Move down"}
+      className="w-8 h-8 rounded-lg border border-white/[0.1] bg-white/[0.03] text-[#86868b] hover:text-[#f5f5f7] hover:border-white/[0.2] disabled:opacity-30 disabled:cursor-not-allowed transition-colors flex items-center justify-center text-[14px] leading-none"
+    >
+      {dir === "up" ? "↑" : "↓"}
+    </button>
+  );
+}
+
 // ---- Projects editor --------------------------------------------------------
 
 function ProjectsEditor({
@@ -454,20 +481,34 @@ function ProjectsEditor({
   projects: Project[];
   onChange: (projects: Project[]) => void;
 }) {
+  // Persist the list with numbers auto-synced to position (01, 02, 03…).
+  const commit = (next: Project[]) => {
+    onChange(
+      next.map((p, i) => ({ ...p, number: String(i + 1).padStart(2, "0") }))
+    );
+  };
+
   const setProject = (i: number, next: Project) => {
     const p = [...projects];
     p[i] = next;
-    onChange(p);
+    commit(p);
+  };
+
+  const move = (i: number, dir: -1 | 1) => {
+    const j = i + dir;
+    if (j < 0 || j >= projects.length) return;
+    const p = [...projects];
+    [p[i], p[j]] = [p[j], p[i]];
+    commit(p);
   };
 
   const addProject = () => {
     const nextId = projects.reduce((m, p) => Math.max(m, p.id), 0) + 1;
-    const number = String(projects.length + 1).padStart(2, "0");
-    onChange([
+    commit([
       ...projects,
       {
         id: nextId,
-        number,
+        number: "",
         title: "",
         subtitle: "",
         description: "",
@@ -482,19 +523,29 @@ function ProjectsEditor({
   return (
     <>
       {projects.map((project, i) => (
-        <Section key={project.id} title={`Project ${project.number || i + 1}`}>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <TextField
-              label="Number"
-              value={project.number}
-              onChange={(v) => setProject(i, { ...project, number: v })}
-            />
-            <TextField
-              label="Title"
-              value={project.title}
-              onChange={(v) => setProject(i, { ...project, title: v })}
-            />
-          </div>
+        <Section
+          key={project.id}
+          title={`Project ${i + 1}`}
+          headerRight={
+            <div className="flex items-center gap-1.5">
+              <MoveButton
+                dir="up"
+                disabled={i === 0}
+                onClick={() => move(i, -1)}
+              />
+              <MoveButton
+                dir="down"
+                disabled={i === projects.length - 1}
+                onClick={() => move(i, 1)}
+              />
+            </div>
+          }
+        >
+          <TextField
+            label="Title"
+            value={project.title}
+            onChange={(v) => setProject(i, { ...project, title: v })}
+          />
           <TextField
             label="Subtitle"
             value={project.subtitle}
@@ -559,7 +610,7 @@ function ProjectsEditor({
 
           <div className="pt-1">
             <RemoveButton
-              onClick={() => onChange(projects.filter((_, j) => j !== i))}
+              onClick={() => commit(projects.filter((_, j) => j !== i))}
             />
           </div>
         </Section>
