@@ -616,7 +616,7 @@ function ProjectsEditor({
                   type="text"
                   value={project.accent}
                   onChange={(e) =>
-                    setProject(i, { ...project, accent: e.target.value })
+                    setProject(i, { ...project, accent: e.target.value.trim() })
                   }
                   className="flex-1 px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.1] text-[#f5f5f7] text-[14px] outline-none focus:border-[#0071e3]"
                 />
@@ -625,7 +625,7 @@ function ProjectsEditor({
             <TextField
               label="Glow alpha (hex, e.g. 15)"
               value={project.glowAlpha}
-              onChange={(v) => setProject(i, { ...project, glowAlpha: v })}
+              onChange={(v) => setProject(i, { ...project, glowAlpha: v.trim() })}
             />
           </div>
 

@@ -17,6 +17,16 @@ const cardVariants = {
   },
 };
 
+// Builds an #rrggbbaa glow colour. Tolerates stray whitespace and #rgb
+// shorthand from admin input, which would otherwise yield an invalid colour.
+function glowColor(accent: string, alpha: string) {
+  let hex = accent.trim().replace(/^#/, "");
+  if (/^[0-9a-f]{3}$/i.test(hex)) hex = hex.replace(/./g, (c) => c + c);
+  if (!/^[0-9a-f]{6}$/i.test(hex)) return "transparent";
+  const a = alpha.trim();
+  return `#${hex}${/^[0-9a-f]{2}$/i.test(a) ? a : "08"}`;
+}
+
 export default function Projects({
   projects,
 }: {
@@ -67,7 +77,7 @@ export default function Projects({
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
-                  background: `radial-gradient(600px circle at top left, ${project.accent}${project.glowAlpha || "08"}, transparent 60%)`,
+                  background: `radial-gradient(600px circle at top left, ${glowColor(project.accent, project.glowAlpha)}, transparent 60%)`,
                 }}
               />
 
