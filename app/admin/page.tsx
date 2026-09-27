@@ -357,6 +357,15 @@ function SkillsEditor({
                   s[si] = next;
                   setCategory(ci, { ...cat, skills: s });
                 }}
+                isFirst={si === 0}
+                isLast={si === cat.skills.length - 1}
+                onMove={(dir) => {
+                  const j = si + dir;
+                  if (j < 0 || j >= cat.skills.length) return;
+                  const s = [...cat.skills];
+                  [s[si], s[j]] = [s[j], s[si]];
+                  setCategory(ci, { ...cat, skills: s });
+                }}
                 onRemove={() =>
                   setCategory(ci, {
                     ...cat,
@@ -389,10 +398,16 @@ function SkillsEditor({
 function SkillRow({
   skill,
   onChange,
+  isFirst,
+  isLast,
+  onMove,
   onRemove,
 }: {
   skill: Skill;
   onChange: (s: Skill) => void;
+  isFirst: boolean;
+  isLast: boolean;
+  onMove: (dir: -1 | 1) => void;
   onRemove: () => void;
 }) {
   return (
@@ -444,7 +459,13 @@ function SkillRow({
             </div>
           </div>
         </div>
-        <RemoveButton onClick={onRemove} />
+        <div className="flex flex-col items-end gap-1.5">
+          <div className="flex items-center gap-1.5">
+            <MoveButton dir="up" disabled={isFirst} onClick={() => onMove(-1)} />
+            <MoveButton dir="down" disabled={isLast} onClick={() => onMove(1)} />
+          </div>
+          <RemoveButton onClick={onRemove} />
+        </div>
       </div>
     </div>
   );
